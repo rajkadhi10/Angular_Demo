@@ -1,0 +1,27 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
+
+    <p class="h4 mb-4">Sign in</p>
+
+    <div class="form-row mb-2">
+        <div class="col">
+            <input type="text" id="firstName" formControlName="name" class="form-control" placeholder="First name">
+        </div>
+
+    </div>
+
+    <br>
+    <div class="form-row mb-2">
+        <div class="col">
+            <input type="password" id="lastname" class="form-control mb-4" formControlName="password" placeholder="Password">
+        </div>
+        <small id="passhelp" class="form-text text-muted">Don't share password with anyone.</small>
+
+    </div>
+
+
+    <br>
+    <button class="btn btn-info my-4 btn-block" type="submit">Sign in</button>
+
+    <hr>
+
+</form>
