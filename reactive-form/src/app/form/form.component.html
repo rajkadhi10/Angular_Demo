@@ -1,0 +1,61 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
+
+    <p class="h4 mb-4">Sign up</p>
+
+    <div class="form-row mb-4">
+        <div class="col">
+            <input type="text" id="firstName" formControlName="name" class="form-control" placeholder="First name">
+        </div>
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class=" alert-danger col-xs-3">
+            <small *ngIf="name.errors?.pattern">Atleast  3 character required</small>
+            <small *ngIf="name.errors?.required">Name field is required</small>
+        </div>
+        <div *ngIf="afterSubmit" class="bg-success text-white col-sm-2">
+            {{nameValue}}
+        </div>
+    </div>
+
+    <div class="form-row mb-4">
+        <div class="col">
+            <input type="email" id="lastname" class="form-control mb-4" formControlName="email" placeholder="E-mail">
+        </div>
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class=" alert-danger col-xs-3">
+            <small *ngIf="email.errors?.email">Valid email required</small>
+            <small *ngIf="email.errors?.required">Email is required</small>
+        </div>
+        <div *ngIf="afterSubmit" class="bg-success text-white col-sm-2">
+            {{emailValue}}
+        </div>
+    </div>
+
+    <div class="form-row mb-4">
+        <div class="col">
+            <input type="password" id="lastname" class="form-control mb-4" formControlName="password" placeholder="Password">
+        </div>
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class=" alert-danger col-xs-3">
+            <small *ngIf="password.errors?.pattern">Valid password required</small>
+            <small *ngIf="password.errors?.required">password is required</small>
+        </div>
+        <!-- <div *ngIf="afterSubmit" class="bg-success text-white col-sm-2">
+            {{passwordValue}}
+        </div> -->
+
+    </div>
+    <div class="form-row mb-4">
+        <div class="col">
+            <input type="text" id="lastname" class="form-control mb-4" formControlName="mob" placeholder="Contact No.">
+        </div>
+        <div *ngIf="mob.invalid && (mob.dirty || mob.touched)" class=" alert-danger col-xs-3">
+            <small *ngIf="mob.errors?.pattern">Valid mobile no. required</small>
+            <small *ngIf="mob.errors?.required">Mobile no. is required</small>
+        </div>
+        <div *ngIf="afterSubmit" class="bg-success text-white col-sm-2">
+            {{mobileValue}}
+        </div>
+    </div>
+
+    <button [disabled]="!userForm.valid" class="btn btn-info my-4 btn-block" type="submit">Sign in</button>
+
+    <hr>
+
+</form>
